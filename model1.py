@@ -78,13 +78,21 @@ def shuffle(l):
 
 if __name__ == '__main__':
 
+    # 参数
+    INDIVIDUAL_COUNT = 1000  # 登场人物数量
+    MEET_TIMES = 5  # 随机相遇次数
+    NATIONS = ['魏', '蜀', '吴']  # 势力数量和名称
+    INIT_NATION_COUNT = 30  # 给前若干个人依次设置初始势力
+    BE_FRIEND_IF = 5000
+    JOIN_IF = 2000
+
     # 人物登场
-    INDIVIDUAL_COUNT = 100
+    INDIVIDUAL_COUNT = INDIVIDUAL_COUNT
     inds = [Individual() for i in range(INDIVIDUAL_COUNT)]
 
     # 分配初始势力
-    nations = [Nation(n) for n in ('A', 'B', 'C')]
-    for i, n in enumerate(islice(cycle(nations), 0, 8)):
+    nations = [Nation(n) for n in NATIONS]
+    for i, n in enumerate(islice(cycle(nations), 0, INIT_NATION_COUNT)):
         inds[i].nation = n
 
     # 朋友关系
@@ -102,7 +110,7 @@ if __name__ == '__main__':
 
     # 世界开始运转
     # 若干次机会随机相遇
-    MEET_TIMES = 500
+    MEET_TIMES = MEET_TIMES
 
     for x in range(MEET_TIMES):
 
@@ -122,13 +130,13 @@ if __name__ == '__main__':
             s = Hobby.similarity(ind.hobby, ind2.hobby)
 
             # 如果比较投缘
-            if s < 1000:
+            if s < BE_FRIEND_IF:
                 # 则结交
                 become_friend(ind, ind2)
                 print('{0} 与 {1} 成为好友'.format(ind, ind2))
 
             # 如果十分投缘
-            if s < 500:
+            if s < JOIN_IF:
                 # 没阵营的 会 加入另外一个人的阵营
                 n1, n2 = ind.nation, ind2.nation
                 if n1 and not n2:
