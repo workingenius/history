@@ -1,3 +1,29 @@
+"""
+# 模型 1
+
+一些特点（可以针对改进之处）
+
+1. 人物间的关系
+    + 是不带属性的 即两人之间只有"有关系"和"没关系"两种 且描述的是"朋友"关系
+    + 是无向的 即 A对B 和 B对A 是完全相等的
+        也就是说 若A是B的朋友 则 B一定是A的朋友
+2. 决定关系
+    + 除初始值，势力完全由人物间关系决定
+    + 人物间关系完全由相性决定
+    + 相性完全随机指定
+3. 事件
+    + 只有完全随机的"相遇"事件，触发"结交"或者"加入"
+4. 人物
+    + 一旦初始化，人物没有生、老、死
+    + 势力不会反覆 即一旦加入了某个势力就再也不会退出 或加入其它势力
+    + 相性用一个数字表达，且固定不变
+    + 所有人物完全平等
+        + 平均每人获得行动的机会相同
+        + 每人可以作出的选择相同
+        + 平均每人的影响力相同
+"""
+
+
 from collections import defaultdict
 from itertools import count, cycle, islice
 from math import fabs
@@ -175,6 +201,6 @@ if __name__ == '__main__':
                 print('{0} 选择加入 {1}'.format(ind, the_nation))
                 ind.nation = the_nation
 
-    # 结交过后 进入 结算环节
+    # 世界运转完毕 进入结算环节
     stats = {str(n): len([1 for i in inds if i.nation is n]) for n in nations}
     print(stats)
