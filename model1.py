@@ -27,8 +27,10 @@
 from collections import defaultdict
 from itertools import count, cycle, islice
 from math import fabs
-from random import randint, shuffle as _shuffle
+from random import randint
 from typing import Optional
+
+from helpers import shuffle
 
 
 id_iter = count()
@@ -90,16 +92,6 @@ class Individual(object):
     def nation(self, n: Nation) -> None:
         assert isinstance(n, Nation)
         self._nation = n
-
-
-# ### helpers ###
-
-
-def shuffle(l):
-    """有返回值的 shuffle 函数"""
-    l1 = list(l)
-    _shuffle(l1)
-    return l1
 
 
 if __name__ == '__main__':
