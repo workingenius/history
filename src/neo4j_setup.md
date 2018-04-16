@@ -18,6 +18,7 @@ docker run \
 
 ### PyNeo4j
 [readme here](https://neo4j.com/developer/python/)
+[and here](https://neo4j.com/docs/api/python-driver/current/)
 
 #### Neo4j Python driver
 pip install neo4j-driver
