@@ -54,6 +54,4 @@ if __name__ == '__main__':
 ```
 
 By using cypher `match (n) return n` in http://localhost:7474/browser/
-you should see something like this:
-
-![Markdown](http://i1.bvimg.com/641642/cbfa9c7e5edd6147.png)
+you should see something like this:![picture](http://i1.bvimg.com/641642/cbfa9c7e5edd6147.png)
