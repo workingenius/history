@@ -8,6 +8,7 @@ Docker version 17.12.0-ce, build c97c6d6
 docker pull registry.docker-cn.com/library/neo4j:3.3
 
 #### Start
+```
 docker run \
     --publish=7474:7474 --publish=7687:7687 \
     --volume=$HOME/neo4j/data:/data \
@@ -15,6 +16,7 @@ docker run \
     --env=NEO4J_dbms_memory_pagecache_size=4G \
     --env=NEO4J_AUTH=none \
     neo4j:3.3
+```
 
 ### PyNeo4j
 [readme here](https://neo4j.com/developer/python/)
