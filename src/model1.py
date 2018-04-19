@@ -96,8 +96,8 @@ def shuffle(l):
 # 由于shema设计的不完善，导致查询复杂
 if __name__ == '__main__':
     # 参数
-    INDIVIDUAL_COUNT = 100  # 登场人物数量
-    MEET_TIMES = 1  # 随机相遇次数
+    INDIVIDUAL_COUNT = 1000  # 登场人物数量
+    MEET_TIMES = 5  # 随机相遇次数
     NATIONS = ['魏', '蜀', '吴']  # 势力数量和名称
     INIT_NATION_COUNT = 30  # 给前若干个人依次设置初始势力
     BE_FRIEND_IF = 5000
@@ -197,7 +197,7 @@ if __name__ == '__main__':
                     max_nati = nati
             if max_nati:
                 print('{0}：{1}'.format(ind, '，'.join(['{0} 国 {1} 个朋友'.format(x,y) for y, x in zip(friend_num, nati_list)])))
-                print('{0} 选择加入 {1}'.format(ind, nati))
+                print('{0} 选择加入 {1}'.format(ind, max_nati))
                 database.add_relation(ind, max_nati, ['in'])
 
     # 世界运转完毕 进入结算环节
