@@ -84,6 +84,13 @@ class Individual(object):
     def hobby(self) -> Hobby:
         return self._hobby
 
+    @hobby.setter
+    def hobby(self, h):
+        if isinstance(h, int):
+            h = Hobby(h)
+        assert isinstance(h, Hobby)
+        self._hobby = h
+
     @property
     def nation(self) -> Optional[Nation]:
         return self._nation
